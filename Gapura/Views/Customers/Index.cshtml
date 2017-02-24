@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Gapura.Models.Customer>
+
+@{
+    ViewBag.Title = "Customer List";
+}
+
+<div class="row-fluid sortable">
+    <div class="box span12" style="margin-left: 0px">
+        <div class="box-header" data-original-title>
+            <h2><i class="icon-table"></i><span
+                class="break"></span>Master Data Customer</h2>
+            <div class="box-icon">
+                <a href="@Url.Action("Create", "Customers")">
+                    <i class="halflings-icon plus"></i><span class="hidden-tablet"></span>
+                    Add New Customer
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+            <div style="width: inherit; margin-left: 30px;">
+                <table id="myTable" class="compact stripe hover order-column responsive" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CompanyName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ContactName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ContactTitle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </th>
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.City)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Region)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PostalCode)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Country)
+                            </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.Phone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Fax)
+                            </th>
+                            <th>Action
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            @Styles.Render("~/Content/dataTables")
+            <link href="~/Content/dataTables/jquery.dataTables.min.css" rel="stylesheet" />
+
+            @section Scripts{
+                @Scripts.Render("~/bundles/dataTables")
+                <script src="~/Scripts/Customers/IndexCustomers.js"></script>
+                <script src="~/Scripts/dataTables/dataTables.fixedHeader.min.js"></script>
+            }
+        </div>
+    </div>
+</div>
+<style>
+    th {
+        background-color: #cdcdcd !important;
+        border: dotted 1px;
+    }
+    td {
+        border: dotted 1px;
+    }
+</style>
